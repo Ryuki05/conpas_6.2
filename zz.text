@@ -1,0 +1,58 @@
+以下の機能を持つプログラムを考えてください
+1.trainingnotesテーブルに格納されているデータをもとにグラフを作成してください
+2.記録した内容はいつでも見返せる
+3.言語はPHP,HTMLをつかう
+4.以下がデータベースの内容です
+--
+-- テーブルの構造 `trainingnotes`
+--
+
+CREATE TABLE `trainingnotes` (
+  `NoteID` int(11) NOT NULL,
+  `PlayerID` int(11) NOT NULL,
+  `SessionID` int(11) NOT NULL,
+  `NoteContent` text DEFAULT NULL,
+  `Category` varchar(255) DEFAULT NULL,
+  `Record_Date` date NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+5.またデータベースの接続は以下の通りです
+<?php
+
+declare(strict_types=1);
+
+/**
+ * PDOインスタンスを取得する関数
+ */
+function connect(): PDO{
+    try {
+        $pdo = new PDO('mysql:host=localhost; dbname=conpas; charset=utf8mb4', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        return $pdo;
+    }catch (PDOException $e) {
+        echo '接続失敗';
+    }
+}
+/**
+ * HTMLエスケープする関数
+ */
+function escape(?string $value)
+{
+    return htmlspecialchars(strval($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+}
+
+/**
+ * LIKE演算子のワイルドカードをエスケープする関数
+ */
+function escapeLike(?string $value)
+{
+    return preg_replace('/([_%#])/u', '#${1}', $value);
+}
+?>
+
+6.このページはnote.phpという名前です
+7.noteというページにはhomeというページから飛んできます
+8.項目内容はいつでも編集できるようにします
+9.また新しい項目を追加できるようにしてください
+10.
+

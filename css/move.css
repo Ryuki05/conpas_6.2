@@ -1,0 +1,66 @@
+/* CSS */
+@charset "utf-8";
+/* HTML共通部分-------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jacques Francois', serif;
+}
+h1{
+    margin: 1% 0 0 3%;
+}
+.center{
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.moves{
+    
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 水平方向中央揃え */
+    text-align: center; /* 垂直方向中央揃え */
+    margin: 3% auto 0 auto;
+}
+.moves video{
+    margin: 20px;
+    width: 320px;
+    height: 240px;
+}
+.prasu{
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+}
+.prasu:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+.prasu input{
+    border: none; /* 枠線を消す */
+    background: none; /* 背景を透明にする（任意） */
+    
+}
+.btn{
+    align-items: center;
+    margin: 50px auto;
+    /* display: flex;
+    flex-direction: column; */
+}
+.btn label input{
+    border: none; /* 枠線を消す */
+    background: none; /* 背景を透明にする（任意） */
+    font-size: 20px;
+
+}
+.btn img{
+    width: 3%;
+    background-color: rgb(183, 206, 206);
+}
+

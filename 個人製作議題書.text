@@ -1,0 +1,158 @@
+・作るもの
+　部活の個人体調管理ツール
+
+・ツールの名前
+トレーニングコンパス
+
+・提供先
+　部活をやっている学生やその顧問
+
+・主な内容
+　その日の練習内容(today)
+　　・強度
+　　・その練習の目的
+　　・その日の反省
+　　・その日の練習の様子(タイム、週数)
+　　・選手の体調
+　　　・定期的に記録される体重・身長・筋肉量・ＢＭＩなど
+　練習ノート
+　　例）その練習がどこの部位を鍛えるための練習なのか？を分類わけする
+　　　　分類
+　　　　　・瞬発系
+　　　　　・筋肥大系
+　　　　　・持久力系
+　　　　　・技術系など
+　　　　これらのことを代々部活で書き込み続ければ先輩から後輩へしっかりと
+　　　　伝統を引き継ぐことができる
+　チャットツール
+　　選手の記録データを担当顧問、マネージャーに送信する
+　　これにより選手の体調や成績をいっせいに管理できる
+
+成績管理
+    試合での成績を入力
+
+作らなければならない項目
+・その日の練習内容記録(today_practice)
+・選手の体調(condition)
+・練習ノート(practice notes)
+・チャットツール(chat)
+・練習風景動画保存ファイル(movie)
+上記の項目はデータベースで管理
+グラフでも管理できるようにする
+個人好みの色に変更できるようにする
+ログイン機能も付ける
+ラインのアイコン画面みたいにする
+
+練習内容や体調などの記録系はホームに表示
+
+データベース
+//選手情報テーブル (Players):
+
+選手ID (PlayerID)
+ユーザー名 (Username)
+パスワード (Password) - ログイン機能のため
+メールアドレス (Email) - 連絡手段として
+体重 (Weight)
+身長 (Height)
+筋肉量 (MuscleMass)
+BMI (BMI)
+
+CREATE TABLE Players (
+    `ID` INT AUTO_INCREMENT PRIMARY KEY,
+    `ImgName` VARCHAR(255) NOT NULL,
+    `PlayerID` VARCHAR(255) NOT NULL,
+    `Username` VARCHAR(255) NOT NULL,
+    `Password` VARCHAR(255) NOT NULL,
+    `Email` VARCHAR(255),
+    `Weight` DECIMAL(5, 2),
+    `Height` DECIMAL(5, 2),                     
+    `MuscleMass` DECIMAL(5, 2),                 
+    `BMI` DECIMAL(5, 2)                         
+);
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+//練習内容テーブル (TrainingSessions):
+
+練習ID (SessionID)
+選手ID (PlayerID) - 外部キー参照
+練習日 (SessionDate)
+強度 (Intensity)
+練習の目的 (SessionPurpose)
+反省コメント (Reflection)
+タイム (Time)
+週数 (WeekNumber)
+
+CREATE TABLE TrainingSessions (
+    `SessionID` INT AUTO_INCREMENT PRIMARY KEY,
+    `PlayerID` INT NOT NULL,
+    `SessionDate` DATE NOT NULL,
+    `Intensity` VARCHAR(255),
+    `SessionPurpose` VARCHAR(255),
+    `Reflection` TEXT,
+    `Time` TIME,
+    `WeekNumber` INT
+);
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+//練習ノートテーブル (TrainingNotes):
+
+ノートID (NoteID)
+選手ID (PlayerID) - 外部キー参照
+練習ID (SessionID) - 外部キー参照
+ノート内容 (NoteContent)
+分類 (Category) - 瞬発系、筋肥大系、持久力系、技術系など
+
+CREATE TABLE TrainingNotes (
+    `NoteID` INT AUTO_INCREMENT PRIMARY KEY,
+    `PlayerID` INT NOT NULL,
+    `SessionID` INT NOT NULL,
+    `NoteContent` TEXT,
+    `Category` VARCHAR(255)
+);
+
+------------------------------------------------------
+
+//チャットメッセージテーブル (ChatMessages):
+
+メッセージID (MessageID)
+送信者ID (SenderID) - 選手IDまたは顧問ID
+受信者ID (ReceiverID) - 選手IDまたは顧問ID
+メッセージ内容 (MessageContent)
+送信日時 (Timestamp)
+
+CREATE TABLE ChatMessages (
+    `MessageID` INT AUTO_INCREMENT PRIMARY KEY,
+    `SenderID` INT NOT NULL,
+    `ReceiverID` INT NOT NULL,
+    `MessageContent` TEXT,
+    `Timestamp` TIMESTAMP NOT NULL
+);
+
+--------------------------------------------------------
+
+//練習風景動画保存ファイルテーブル (VideoFiles):
+
+ファイルID (FileID)
+ファイル名 (FileName)
+選手ID (PlayerID) - 外部キー参照
+練習ID (SessionID) - 外部キー参照
+ファイルパス (FilePath)
+
+CREATE TABLE VideoFiles (
+    `FileID` INT AUTO_INCREMENT PRIMARY KEY,
+    `FileName` VARCHAR(255) NOT NULL,
+    `PlayerID` INT NOT NULL,
+    `SessionID` INT NOT NULL,
+    `FilePath` VARCHAR(255)
+);
+//画像保存テーブルjpg,jpeg,png,gifなどで
+CREATE TABLE image_table (
+    `FileID` INT AUTO_INCREMENT PRIMARY KEY,
+    `PlayerID` INT NOT NULL,
+    `ImgName` VARCHAR(255) NOT NULL
+);
+

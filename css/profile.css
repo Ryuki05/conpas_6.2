@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* HTML共通部分-------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jacques Francois', serif;
+}
+.center{
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.icon img{
+    width: 250px;
+    height: 250px;
+    object-fit:cover;
+    margin-top: 12px;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 1; 
+    border: solid #CAC0C0 3px;
+}
+.text .username{
+    font-size: 50px;
+    color: #172451;
+}
+.text .player_id{
+    font-size: 35px;
+    color: #172451;
+}
+.border{
+    font-size: 45px;
+    border: solid #CAC0C0 3px;
+    width: 40%;
+    height: 406px;
+    margin: 0 auto;
+    border-radius: 50px;
+    color: #172451;
+}
+.border p{
+    margin-top: 1%;
+}
+.submit input{
+    margin: 1.3% 0 0 45%;
+    font-size: 40px;
+    border: 2px solid #CAC0C0;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+/* プロフィール編集 */
+.pr_c{
+    width: 33%;
+    height: 503px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}

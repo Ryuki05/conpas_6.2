@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* HTML共通部分-------------------------------------- */
+*{
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+    font-family: 'Jacques Francois', serif;
+}
+.text_center{
+    text-align: center;
+    margin: 20px auto;
+}
+.input{
+    margin-top: 20px;
+    margin-left: 32.6%;
+    width: 35%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #cac0c0;
+}
+.input label{
+    margin-top: 10px;
+    font-size: 32px;
+}
+.input input{
+    margin-top: 10px;
+    font-size: 32px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #fc0089;
+}
+/* グラフのコンテナを横並びに配置するためのスタイル */
+.chart_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* グラフの各コンテナの幅を調整するためのスタイル */
+.chart_container canvas {
+    height: 45% !important;
+    width: 84% !important; /* 画面幅の45%に設定 */
+    margin: 10px; /* グラフ間の余白を設定 */
+}

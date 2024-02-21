@@ -1,0 +1,66 @@
+/* 共通 */
+@charset "utf-8";
+/* HTML共通部分-------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jacques Francois', serif;
+}
+.s_07{
+    width: 70%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 10%;
+}
+/* 矢印のスタイル */
+.accordion_one{
+    width: 40%;
+}
+.accordion_header {
+    position: relative;
+    background-color: #eee;
+    font-size: 32px;
+    margin: 17px 0 0 0;
+}
+
+.arrow_icon {
+    position: absolute;
+    left:87%; /* 右側に配置 */
+    top: 48%; /* 上下中央に配置 */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #00E0FF; /* 矢印の色 */
+}
+/* アコーディオン内部 */
+.arrow_icon.down {
+    border-top: 15px solid #00E0FF; /* 矢印を下向きにするためのスタイル */
+    transform: rotate(0.5turn);
+}
+.accordion_item{
+    width: 94.7%;
+}
+.accordion_content{
+    width: 93%;
+}
+
+.accordion_inner{
+    display: flex;
+    flex-direction: column;
+    width: 106.6%;
+    overflow-wrap: break-word;
+}
+.coram{
+    border:1px solid #cac0c0;
+}
+.coram strong{
+    margin-top: 5px;
+}
+
+

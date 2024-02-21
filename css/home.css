@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* HTML共通部分-------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jacques Francois', serif;
+}
+
+.center{
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.section_title{
+    background-color: #eee;
+    color: #172451;
+    padding: 16px 0 0 10px;
+    height: 75px;
+    font-size: 32px;
+}
+.trans{
+	transition: all 0.5s;
+}
+.trans:hover{
+	transform: scale(1.1,1.0);
+}
+.trans_img{
+	transition: all 0.5s;
+}
+.trans_img:hover{
+	transform: scale(1.05);
+}
+.my_profile input{
+    margin-top:6px ;
+    font-size: 32px;
+    border: none;
+    background-color:#fff;
+    color: #00e0ff;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+.overflow{
+    overflow: hidden;
+    overflow-wrap: break-word;
+    overflow:auto;
+    width: 98%; /* 縦幅指定 */
+    height: 291px; /* 縦幅指定 */
+    margin: 17px 6px 2px 6px;
+    font-size: 32px;
+}
+/* プロフィール */
+.profile{
+    margin: 3% 0 0 20%;
+    width: 26.3%;
+    height: 443px;
+    border: solid #000 3px;
+}
+.player_id{
+    margin: 0 0 8px 47px;
+    font-size: 24px;
+    color: #172451;
+}
+.icon{
+    width: 250px;
+    height: 250px;
+    object-fit:cover;
+    margin-top: 12px;
+}
+.icon img{
+    width: 250px;
+    height: 250px;
+    object-fit:cover;
+    margin-top: 12px;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 1; 
+    border: solid #CAC0C0 3px;
+}
+.border{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    border-top: 2px double #CAC0C0;
+}
+
+/* その日の練習 */
+.to_day_training{
+    margin: 3% 0 0 10%;
+    width: 26%;
+    height: 443px;
+    border: solid #000 3px;
+}
+/* 試合記録 */
+.record{
+    margin: 3.7% 0 0 20%;
+    width: 26.3%;
+    height: 443px;
+    border: solid #000 3px;
+}
+/* その他 */
+.others{
+    width: 38%;
+    margin: 3% 0 0 9.5%;
+}
+.others div{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.others form{
+    margin: 10px;
+    width: 240px;
+    height: 212px;
+    background-color: #eee;
+}
+.others form p{
+    text-align: center;
+    margin: 7px auto;
+    font-size: 32px;
+}
+.others form input{
+    border: none;
+    color: #00e0ff;
+    background-color: #eee;
+    font-size: 48px;
+    margin-left: 200px;
+}
+.other_img img{
+    align-items: center;   
+    margin: 0px auto;
+    width: 90px;
+    height: 92px;
+}

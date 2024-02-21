@@ -1,0 +1,12 @@
+ログインからのプロフィール
+new_loginで$PlayerID = $_GET['PlayerID'];を利用して情報を表示していく
+
+$pdo = connect();
+$imageStatement = $pdo->prepare('SELECT image_data, image_extension FROM image_table WHERE image_id = 1;');
+$imageData = isset($imageRow['image_data']) ? $imageRow['image_data'] : null;  // 画像のバイナリデータ
+    <!-- データベースから取得した画像の表示 -->
+    <?php if ($imageData): ?>
+        <img src="data:image/jpeg;base64,<?= base64_encode($imageData); ?>" alt="アイコン">
+    <?php else: ?>
+        <p>画像がありません</p>
+    <?php endif; ?>
